@@ -1,4 +1,4 @@
-/*
+package com.company.Inheritance;/*
     Different kinds of objects often have a certain amount in common with each other. 
     Mountain bikes, road bikes, and tandem bikes, for example, all share the characteristics 
     of bicycles (current speed, current pedal cadence, current gear). Yet each also defines 
@@ -9,10 +9,40 @@
 
     In this example Bicycle is superclass of  MountainBike, RoadBike, and TandemBike
 */
-package com.company.Inheritance;
-package com.company.ClassesObjects;
 
+// Here BicycleClass, is a Superclass => which has all methods and properties
+class BicycleClass {
 
+    int cadence = 0;
+    int speed = 0;
+    int gear = 1;
+
+    void changeCadence(int newValue) {
+        cadence = newValue;
+    }
+
+    void changeGear(int newValue) {
+        gear = newValue;
+    }
+
+    void speedUp(int increment) {
+        speed = speed + increment;
+    }
+
+    void applyBrakes(int decrement) {
+        speed = speed - decrement;
+    }
+
+    void printStates() {
+        System.out.println("cadence:" +
+                cadence + " speed:" +
+                speed + " gear:" + gear);
+    }
+}
+
+//This is a Sub Class(Derived Class) which inherits the super class properties and methods and adds additional
+// features(properties and methods) to itsel(This additional features doesn't apply to the super class it remains
+// to the derived class)
 class MountainBike extends BicycleClass {
 
     // new Fields, Methods
@@ -28,14 +58,14 @@ class MountainBike extends BicycleClass {
 }
 
 public class Main {
-    public static void main(Stirng[] args){
-        BicycleClass mountainBike = new MountainBike();
+    public static void main(String[] args){
+        MountainBike mountainBike = new MountainBike();
         
         // mountainBike now can have access to all methods and properties of BicycleClass 
         // addition to it, it has propertiese of MountainBike class
 
 
-        // all properites & methods of BicycleClass
+        // all properties & methods of BicycleClass
         mountainBike.changeCadence(50);
         mountainBike.speedUp(10);
         mountainBike.changeGear(2);
